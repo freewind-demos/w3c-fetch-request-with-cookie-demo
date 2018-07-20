@@ -1,0 +1,19 @@
+<html>
+
+<head>
+    <script src="./node_modules/jquery/dist/jquery.js"></script>
+    <script>
+        function getData() {
+            $.get('./data.json', function(data) {
+                $("#content").text(JSON.stringify(data));
+            })
+        }
+    </script>
+</head>
+
+<body>
+    <button onclick="getData()">Click to send AJAX GET</button>
+    <div id="content"></div>
+</body>
+
+</html>
