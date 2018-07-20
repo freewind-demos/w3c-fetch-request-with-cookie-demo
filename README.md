@@ -1,7 +1,15 @@
 Express JQuery Request with Existing Cookie Demo
 ================================================
 
-Check if the jquery AJAX call will send existing cookies to server automatically, the answer is yes.
+Check if the `fetch` call will send existing cookies to server automatically.
+
+The answer is NO, we have to set config `credentials: 'include'` in `fetch`:
+
+```
+fetch(url, {
+    credentials: 'include'
+}).then(...)
+```
 
 Run
 ---

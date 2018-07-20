@@ -1,12 +1,19 @@
 <html>
 
 <head>
-    <script src="./node_modules/jquery/dist/jquery.js"></script>
     <script>
         function getData() {
-            $.get('./data.json', function(data) {
-                $("#content").text(JSON.stringify(data));
-            })
+            fetch('./data.json', {
+                credentials: 'include'
+            }).then(function(res) {
+                if (res.ok) {
+                    res.json().then(function(data) {
+                        document.getElementById('content').innerHTML = JSON.stringify(data);
+                    });
+                } else {
+                    console.log("Looks like the response wasn't perfect, got status", res.status);
+                }
+            });
         }
     </script>
 </head>
