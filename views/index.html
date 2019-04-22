@@ -2,25 +2,25 @@
 
 <head>
     <script>
-        function getData() {
-            fetch('./data.json', {
-                credentials: 'include'
-            }).then(function(res) {
-                if (res.ok) {
-                    res.json().then(function(data) {
-                        document.getElementById('content').innerHTML = JSON.stringify(data);
-                    });
-                } else {
-                    console.log("Looks like the response wasn't perfect, got status", res.status);
-                }
+      function getData() {
+        fetch('./data.json', {
+          credentials: 'include'
+        }).then(function (res) {
+          if (res.ok) {
+            res.json().then(function (data) {
+              document.getElementById('content').innerHTML = JSON.stringify(data);
             });
-        }
+          } else {
+            console.log("Looks like the response wasn't perfect, got status", res.status);
+          }
+        });
+      }
     </script>
 </head>
 
 <body>
-    <button onclick="getData()">Click to send AJAX GET</button>
-    <div id="content"></div>
+<button onclick="getData()">Click to send AJAX GET</button>
+<div id="content"></div>
 </body>
 
 </html>
